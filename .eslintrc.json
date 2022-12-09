@@ -1,0 +1,6 @@
+{
+    "extends": "ant-fu",
+    "rules": {
+        "no-console": "off"
+    }
+}
