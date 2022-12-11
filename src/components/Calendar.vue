@@ -3,6 +3,7 @@ import { getTime, getNumber } from '~/utils';
 
 const props = $defineProps<{
   value: PriceItemProp[]
+  showType: 'day' | 'year' | 'month'
 }>()
 const collapsed = $ref(false)
 console.log(props)
@@ -12,8 +13,9 @@ console.log(props)
         <div w-160 z-2 px-4 h-8 justify-between bg-green-100 flex items-center @click="collapsed = !collapsed" font-bold>
             <div flex items-center>
                 <div transition ease-in-out duration-300 delay-150 :class="collapsed ? '':'active' " i-carbon-play-filled-alt></div>
-                <div ml-2>{{getTime(props.value[0].date)}}</div>
+                <div ml-2>{{getTime(props.value[0].date, props.showType)}}</div>
             </div>
+            <div>账目: {{props.value.length}}条</div>
             <div>收入: {{getNumber(true, props.value)}}</div>
             <div>支出: {{getNumber(false, props.value)}}</div>
             <div>合计: {{getNumber(true, props.value) - getNumber(false, props.value)}}</div>

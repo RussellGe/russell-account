@@ -8,6 +8,8 @@ export interface PriceItemProp {
 }
 export interface PriceModelOption {
   items: PriceItemProp[]
+  showType: 'day' | 'month' | 'year'
+  reverse: boolean
 }
 interface Category {
   name: string
